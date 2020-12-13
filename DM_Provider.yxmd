@@ -1,0 +1,256 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2020.3">
+  <Nodes>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="114" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Users\Roxym\Desktop\FINAL GROUP PROJECT\CleanClaims (table).yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>CleanClaims (table).yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="PatientID" size="16" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="DateFrom" source="Formula: [_CurrentField_]" type="DateTime" />
+            <Field name="DateTo" source="Formula: [_CurrentField_]" type="DateTime" />
+            <Field name="PatientAge" source="Formula: [_CurrentField_]" type="Double" />
+            <Field name="Death" size="3" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="DeathDate" source="Formula: [_CurrentField_]" type="Date" />
+            <Field name="MDCRStatus" size="21" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="Race" size="21" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Sex" size="6" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="BenefitsType" size="40" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Provider" size="70" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="ProviderType" size="48" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="ClaimType" size="16" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="ClaimStatus" size="253" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="ServiceType" size="9" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="LOS" source="Formula: [_CurrentField_]" type="Double" />
+            <Field name="DiagnosisCode" size="7" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="DiagnosisDesc" size="160" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Zip" size="5" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="County" size="15" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="State" size="2" source="Formula: [_CurrentField_]" type="String" />
+            <Field description="Formula: IF [Row-1:DateTo]=[DateTo] or&#xA;[Row-1:DateFrom]=[DateFrom]&#xA;THEN 1 ELSE 0 ENDIF" name="Duplicate" source="Formula: IF [Row-1:DateTo]=[DateTo] or&#xA;[Row-1:DateFrom]=[DateFrom]&#xA;THEN 1 ELSE 0 ENDIF" type="Int16" />
+            <Field description="Formula: [Row-1:VisitSeq]+1" name="VisitSeq" source="Formula: [Row-1:VisitSeq]+1" type="Int32" />
+            <Field name="R30" source="Formula: IF [readmindelta]&lt;=30 and&#xA;[VisitSeq] &gt; 1 THEN 1 ELSE 0 ENDIF" type="Int16" />
+            <Field name="R60" source="Formula: IF [readmindelta]&lt;=60 AND&#xA;[VisitSeq] &gt; 1 THEN 1 ELSE 0 ENDIF" type="Int16" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+        <Position x="186" y="114" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UniqueFields>
+            <Field field="Provider" />
+          </UniqueFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="306" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldName>ProviderKey</FieldName>
+          <StartValue>1</StartValue>
+          <FieldType>Int32</FieldType>
+          <FieldSize>6</FieldSize>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="426" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Zip" selected="False" />
+            <SelectField field="ServiceType" selected="False" />
+            <SelectField field="Race" selected="False" />
+            <SelectField field="R60" selected="False" />
+            <SelectField field="R30" selected="False" />
+            <SelectField field="ProviderKey" selected="True" />
+            <SelectField field="ProviderType" selected="True" />
+            <SelectField field="Provider" selected="True" rename="Provider Name" />
+            <SelectField field="PatientID" selected="False" />
+            <SelectField field="BenefitsType" selected="False" />
+            <SelectField field="LOS" selected="False" />
+            <SelectField field="DiagnosisDesc" selected="False" />
+            <SelectField field="DiagnosisCode" selected="False" />
+            <SelectField field="DeathDate" selected="False" />
+            <SelectField field="Death" selected="False" />
+            <SelectField field="DateTo" selected="False" />
+            <SelectField field="DateFrom" selected="False" />
+            <SelectField field="County" selected="False" />
+            <SelectField field="ClaimType" selected="False" />
+            <SelectField field="ClaimStatus" selected="False" />
+            <SelectField field="MDCRStatus" selected="False" />
+            <SelectField field="PatientAge" selected="False" />
+            <SelectField field="Sex" selected="False" />
+            <SelectField field="State" selected="False" />
+            <SelectField field="VisitSeq" selected="False" />
+            <SelectField field="Duplicate" selected="False" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="522" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">C:\Users\Roxym\Desktop\FINAL GROUP PROJECT\dim_provider (table).yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>dim_provider (table).yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="522" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="23">aka:MySQL|||dim_provider</File>
+          <Passwords />
+          <CachedCosmeticName />
+          <FormatSpecificOptions>
+            <SpatialObjSize>8000</SpatialObjSize>
+            <TransactionSize>10000</TransactionSize>
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <PostSQL>ALTER TABLE `finalproject`.`dim_provider` 
+CHANGE COLUMN `ProviderKey` `ProviderKey` INT NOT NULL ,
+ADD PRIMARY KEY (`ProviderKey`);
+;</PostSQL>
+            <TableStyle>Quoted</TableStyle>
+            <PreSQL>use finalproject;
+DROP TABLE IF EXISTS dim_provider;</PreSQL>
+            <TransactionMessages>False</TransactionMessages>
+            <OutputOption>Create</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aka:MySQL
+Query=dim_provider</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Unique" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>DM_Provider</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

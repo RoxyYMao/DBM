@@ -1,0 +1,640 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2020.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="8">C:\Users\Roxym\Desktop\Project Files\CCLF2_HR.xls|||`Sheet1$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <NoProgress>False</NoProgress>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Detailed claims data for Hampton Roads CCLF2_HR.csv</AnnotationText>
+          <DefaultAnnotationText>CCLF2_HR.xls
+Query=`Sheet1$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="__CCLF5_ACO_ID" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_HR.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__HIC_MSTR_HICNO_MASKED" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_HR.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF5_CLM_FROM_DT" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_HR.xls|||`Sheet1$`" type="DateTime" />
+            <Field name="__CCLF5_CLM_THRU_DT" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_HR.xls|||`Sheet1$`" type="DateTime" />
+            <Field name="__CCLF8_BENE_AGE" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_HR.xls|||`Sheet1$`" type="Double" />
+            <Field name="__CCLF8_BENE_EXPIRED" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_HR.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF8_BENE_DEATH_DT" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_HR.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF8_BENE_MDCR_STUS" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_HR.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF8_BENE_RACE" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_HR.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF8_BENE_SEX" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_HR.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF5_CLM_POS" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_HR.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF5_CLM_PRVDR_SPCLTY" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_HR.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF5_RNDRG_PRVDR_TYPE" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_HR.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF5_CLM_LINE_DGNS_CD" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_HR.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF5_CLM_LINE_DGNS" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_HR.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF5_CLM_FED_TYPE_SRVC" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_HR.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF8_BENE_ZIP_CD" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_HR.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF8_BENE_FIPS_CNTY" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_HR.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF8_BENE_FIPS_STATE" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_HR.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="COUNT _DISTINCT _CCLF5_BENE_HIC_NUM" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_HR.xls|||`Sheet1$`" type="Double" />
+            <Field name="__CCLF5_CLM_LINE_CVRD_PD_AMT_ADJ" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_HR.xls|||`Sheet1$`" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="8">C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2016.xls|||`Sheet1$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <NoProgress>False</NoProgress>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Detailed claims data for Richmond, 2016 using  CCLF2_RI_2016.csv</AnnotationText>
+          <DefaultAnnotationText>CCLF2_RI_2016.xls
+Query=`Sheet1$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="__CCLF5_ACO_ID" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2016.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__HIC_MSTR_HICNO_MASKED" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2016.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF5_CLM_FROM_DT" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2016.xls|||`Sheet1$`" type="DateTime" />
+            <Field name="__CCLF5_CLM_THRU_DT" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2016.xls|||`Sheet1$`" type="DateTime" />
+            <Field name="__CCLF8_BENE_AGE" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2016.xls|||`Sheet1$`" type="Double" />
+            <Field name="__CCLF8_BENE_EXPIRED" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2016.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF8_BENE_DEATH_DT" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2016.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF8_BENE_MDCR_STUS" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2016.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF8_BENE_RACE" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2016.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF8_BENE_SEX" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2016.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF5_CLM_POS" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2016.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF5_CLM_PRVDR_SPCLTY" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2016.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF5_RNDRG_PRVDR_TYPE" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2016.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF5_CLM_LINE_DGNS_CD" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2016.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF5_CLM_LINE_DGNS" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2016.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF5_CLM_FED_TYPE_SRVC" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2016.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF8_BENE_ZIP_CD" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2016.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF8_BENE_FIPS_CNTY" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2016.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF8_BENE_FIPS_STATE" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2016.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="COUNT _DISTINCT _CCLF5_BENE_HIC_NUM" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2016.xls|||`Sheet1$`" type="Double" />
+            <Field name="__CCLF5_CLM_LINE_CVRD_PD_AMT_ADJ" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2016.xls|||`Sheet1$`" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="318" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="8">C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2017.xls|||`Sheet1$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <NoProgress>False</NoProgress>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Detailed claims data for Richmond, 2017 using CCLF2_RI_2017.csv</AnnotationText>
+          <DefaultAnnotationText>CCLF2_RI_2017.xls
+Query=`Sheet1$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="__CCLF5_ACO_ID" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2017.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__HIC_MSTR_HICNO_MASKED" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2017.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF5_CLM_FROM_DT" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2017.xls|||`Sheet1$`" type="DateTime" />
+            <Field name="__CCLF5_CLM_THRU_DT" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2017.xls|||`Sheet1$`" type="DateTime" />
+            <Field name="__CCLF8_BENE_AGE" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2017.xls|||`Sheet1$`" type="Double" />
+            <Field name="__CCLF8_BENE_EXPIRED" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2017.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF8_BENE_DEATH_DT" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2017.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF8_BENE_MDCR_STUS" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2017.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF8_BENE_RACE" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2017.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF8_BENE_SEX" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2017.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF5_CLM_POS" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2017.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF5_CLM_PRVDR_SPCLTY" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2017.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF5_RNDRG_PRVDR_TYPE" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2017.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF5_CLM_LINE_DGNS_CD" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2017.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF5_CLM_LINE_DGNS" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2017.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF5_CLM_FED_TYPE_SRVC" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2017.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF8_BENE_ZIP_CD" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2017.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF8_BENE_FIPS_CNTY" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2017.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="__CCLF8_BENE_FIPS_STATE" size="255" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2017.xls|||`Sheet1$`" type="V_WString" />
+            <Field name="COUNT _DISTINCT _CCLF5_BENE_HIC_NUM" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2017.xls|||`Sheet1$`" type="Double" />
+            <Field name="__CCLF5_CLM_LINE_CVRD_PD_AMT_ADJ" source="File: C:\Users\Roxym\Desktop\Project Files\CCLF2_RI_2017.xls|||`Sheet1$`" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="198" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="&quot;Hampton Roads&quot;" field="Location File" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[Location File = "Hampton Roads"
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="198" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="&quot;Richmond&quot;" field="Location File" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[Location File = "Richmond"
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="198" y="318" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="&quot;Richmond&quot;" field="Location File" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[Location File = "Richmond"
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="366" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AutoField.AutoField">
+        <Position x="462" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Fields>
+            <Field field="__CCLF5_ACO_ID" selected="True" />
+            <Field field="__HIC_MSTR_HICNO_MASKED" selected="False" />
+            <Field field="__CCLF8_BENE_EXPIRED" selected="True" />
+            <Field field="__CCLF8_BENE_DEATH_DT" selected="True" />
+            <Field field="__CCLF8_BENE_MDCR_STUS" selected="True" />
+            <Field field="__CCLF8_BENE_RACE" selected="True" />
+            <Field field="__CCLF8_BENE_SEX" selected="True" />
+            <Field field="__CCLF5_CLM_POS" selected="True" />
+            <Field field="__CCLF5_CLM_PRVDR_SPCLTY" selected="True" />
+            <Field field="__CCLF5_RNDRG_PRVDR_TYPE" selected="True" />
+            <Field field="__CCLF5_CLM_LINE_DGNS_CD" selected="True" />
+            <Field field="__CCLF5_CLM_LINE_DGNS" selected="True" />
+            <Field field="__CCLF5_CLM_FED_TYPE_SRVC" selected="True" />
+            <Field field="__CCLF8_BENE_ZIP_CD" selected="True" />
+            <Field field="__CCLF8_BENE_FIPS_CNTY" selected="True" />
+            <Field field="__CCLF8_BENE_FIPS_STATE" selected="True" />
+            <Field field="Location File" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </Fields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="__CCLF5_ACO_ID" size="5" source="File: (Multiple Sources)" type="String" />
+            <Field name="__HIC_MSTR_HICNO_MASKED" size="255" source="File: (Multiple Sources)" type="V_WString" />
+            <Field name="__CCLF5_CLM_FROM_DT" source="File: (Multiple Sources)" type="DateTime" />
+            <Field name="__CCLF5_CLM_THRU_DT" source="File: (Multiple Sources)" type="DateTime" />
+            <Field name="__CCLF8_BENE_AGE" source="File: (Multiple Sources)" type="Double" />
+            <Field name="__CCLF8_BENE_EXPIRED" size="3" source="File: (Multiple Sources)" type="String" />
+            <Field name="__CCLF8_BENE_DEATH_DT" source="File: (Multiple Sources)" type="Date" />
+            <Field name="__CCLF8_BENE_MDCR_STUS" size="21" source="File: (Multiple Sources)" type="String" />
+            <Field name="__CCLF8_BENE_RACE" size="21" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="__CCLF8_BENE_SEX" size="6" source="File: (Multiple Sources)" type="String" />
+            <Field name="__CCLF5_CLM_POS" size="159" source="File: (Multiple Sources)" type="V_WString" />
+            <Field name="__CCLF5_CLM_PRVDR_SPCLTY" size="57" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="__CCLF5_RNDRG_PRVDR_TYPE" size="27" source="File: (Multiple Sources)" type="String" />
+            <Field name="__CCLF5_CLM_LINE_DGNS_CD" size="7" source="File: (Multiple Sources)" type="String" />
+            <Field name="__CCLF5_CLM_LINE_DGNS" size="160" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="__CCLF5_CLM_FED_TYPE_SRVC" size="124" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="__CCLF8_BENE_ZIP_CD" size="5" source="File: (Multiple Sources)" type="String" />
+            <Field name="__CCLF8_BENE_FIPS_CNTY" size="15" source="File: (Multiple Sources)" type="V_String" />
+            <Field name="__CCLF8_BENE_FIPS_STATE" size="2" source="File: (Multiple Sources)" type="String" />
+            <Field name="COUNT _DISTINCT _CCLF5_BENE_HIC_NUM" source="File: (Multiple Sources)" type="Double" />
+            <Field name="__CCLF5_CLM_LINE_CVRD_PD_AMT_ADJ" source="File: (Multiple Sources)" type="Double" />
+            <Field name="Location File" size="13" source="Formula: (Multiple Sources)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAutoField" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="558" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="True" />
+          <SelectFields>
+            <SelectField field="__CCLF5_ACO_ID" selected="False" />
+            <SelectField field="__HIC_MSTR_HICNO_MASKED" selected="True" rename="PatientID" />
+            <SelectField field="__CCLF5_CLM_FROM_DT" selected="True" rename="Datefrom" type="Date" size="10" />
+            <SelectField field="__CCLF5_CLM_THRU_DT" selected="True" rename="Dateto" />
+            <SelectField field="__CCLF8_BENE_AGE" selected="True" rename="PatientAge" />
+            <SelectField field="__CCLF8_BENE_EXPIRED" selected="True" rename="Death" />
+            <SelectField field="__CCLF8_BENE_DEATH_DT" selected="False" rename="DeathDate" />
+            <SelectField field="__CCLF8_BENE_MDCR_STUS" selected="True" rename="MDCRStatus" />
+            <SelectField field="__CCLF8_BENE_RACE" selected="True" rename="Race" />
+            <SelectField field="__CCLF8_BENE_SEX" selected="True" rename="Sex" />
+            <SelectField field="__CCLF5_CLM_POS" selected="True" rename="ClaimPOS" />
+            <SelectField field="__CCLF5_CLM_PRVDR_SPCLTY" selected="True" rename="ProviderSpecialty" />
+            <SelectField field="__CCLF5_RNDRG_PRVDR_TYPE" selected="True" rename="ProviderType" />
+            <SelectField field="__CCLF5_CLM_LINE_DGNS_CD" selected="True" rename="DiagnosisCode" />
+            <SelectField field="__CCLF5_CLM_LINE_DGNS" selected="True" rename="Diagnosis" />
+            <SelectField field="__CCLF5_CLM_FED_TYPE_SRVC" selected="True" rename="DiagnosisService" />
+            <SelectField field="__CCLF8_BENE_ZIP_CD" selected="True" rename="Zip" />
+            <SelectField field="__CCLF8_BENE_FIPS_CNTY" selected="True" rename="County" />
+            <SelectField field="__CCLF8_BENE_FIPS_STATE" selected="True" rename="State" />
+            <SelectField field="COUNT _DISTINCT _CCLF5_BENE_HIC_NUM" selected="False" />
+            <SelectField field="__CCLF5_CLM_LINE_CVRD_PD_AMT_ADJ" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="630" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>ClaimPOS</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2018-12-03 19:57:40</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>Inpatient hospital</Operand>
+              <StartDate>2018-12-03 19:57:40</StartDate>
+              <EndDate>2018-12-03 19:57:40</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Filter out inpatient, use F side of data tool</AnnotationText>
+          <DefaultAnnotationText>[ClaimPOS] = "Inpatient hospital"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="726" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[DiagnosisService] = "Medical care" AND
+([ProviderSpecialty]="Internal Medicine" OR
+[ProviderSpecialty]="Family Practice")</Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Filter PCPs</AnnotationText>
+          <DefaultAnnotationText>[DiagnosisService] = "Medical care" AND
+([ProviderSpecialty]="Internal Medicine"...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="822" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="798" y="282" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Users\Roxym\Desktop\FINAL GROUP PROJECT\dim_patient (table).yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText><![CDATA[Patient dim ]]></AnnotationText>
+          <DefaultAnnotationText>dim_patient (table).yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="PatientKey" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="PatientID" size="16" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="DateFrom" source="Formula: [_CurrentField_]" type="DateTime" />
+            <Field name="DateTo" source="Formula: [_CurrentField_]" type="DateTime" />
+            <Field name="PatientAge" source="Formula: [_CurrentField_]" type="Double" />
+            <Field name="Death" size="3" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="MDCRStatus" size="21" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="Race" size="21" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Sex" size="6" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="BenefitsType" size="40" source="Formula: IIF(IsNull([BenefitsType]),&quot;not available&quot;, [BenefitsType])" type="V_String" />
+            <Field name="Zip" size="5" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="NumberOfDaysStayed" size="1073741823" source="Formula: DateTimeDiff([DateTo],[DateFrom],'days')" type="V_WString" />
+            <Field name="Age Group" size="1073741823" source="Formula: Switch([Tile_Num], 'old',&#xA;1, '20s',&#xA;2, '30s',&#xA;3, '40s',&#xA;4, '50s',&#xA;5, '60s',&#xA;6, '70s',&#xA;7, '80s',&#xA;8, '90s',&#xA;9, '100 and over' )" type="V_WString" />
+            <Field description="Geographic Identifiers Physically Within (2017) County Name" name="County" size="102" source="Allocate: Latest:US_Census_2010" type="V_WString" />
+            <Field description="Geographic Identifiers Physically Within (2017) State Coverage Area" name="State__Coverage_Area" scale="2" size="11" source="Allocate: Latest:US_Census_2010" type="FixedDecimal" />
+            <Field description="Geographic Identifiers Physically Within (2017) State Area Sq Km" name="State_AreaKm" scale="3" size="11" source="Allocate: Latest:US_Census_2010" type="FixedDecimal" />
+            <Field description="Geographic Identifiers Physically Within (2017) State Area Sq Mi" name="State_AreaMi" scale="3" size="11" source="Allocate: Latest:US_Census_2010" type="FixedDecimal" />
+            <Field description="Geographic Identifiers Physically Within (2017) State Key" name="State_Key" size="34" source="Allocate: Latest:US_Census_2010" type="V_WString" />
+            <Field description="Geographic Identifiers Physically Within (2017) State Name" name="State" size="102" source="Allocate: Latest:US_Census_2010" type="V_WString" />
+            <Field name="City" size="1073741823" source="Formula: Substring([ZIP_Name],6)" type="V_WString" />
+            <Field name="Total Population" size="60" source="File: C:\Users\Roxym\Desktop\FINAL GROUP PROJECT\dim_patient (table).yxdb" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1014" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Dateto" selected="False" />
+            <SelectField field="PatientAge" selected="False" />
+            <SelectField field="Death" selected="False" />
+            <SelectField field="MDCRStatus" selected="False" />
+            <SelectField field="Race" selected="False" />
+            <SelectField field="Sex" selected="False" />
+            <SelectField field="ClaimPOS" selected="False" />
+            <SelectField field="Zip" selected="False" />
+            <SelectField field="County" selected="False" />
+            <SelectField field="State" selected="False" />
+            <SelectField field="Location File" selected="False" />
+            <SelectField field="Right_PatientID" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="918" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="PatientID" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="PatientID" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Right_PatientID" selected="True" rename="Right_PatientID" input="Right_" />
+                <SelectField field="Right_PatientAge" selected="True" rename="Right_PatientAge" input="Right_" />
+                <SelectField field="Right_Death" selected="True" rename="Right_Death" input="Right_" />
+                <SelectField field="Right_MDCRStatus" selected="True" rename="Right_MDCRStatus" input="Right_" />
+                <SelectField field="Right_Race" selected="True" rename="Right_Race" input="Right_" />
+                <SelectField field="Right_Sex" selected="True" rename="Right_Sex" input="Right_" />
+                <SelectField field="Right_Zip" selected="True" rename="Right_Zip" input="Right_" />
+                <SelectField field="Right_State" selected="True" rename="Right_State" input="Right_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="1110" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">C:\Users\Roxym\Desktop\FINAL GROUP PROJECT\LowLevelClaims (table).yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>LowLevelClaims (table).yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="False" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="True" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="18" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="18" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Join" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>LowLevelClaims</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
