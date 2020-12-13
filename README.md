@@ -1,7 +1,6 @@
 ## Database Management
 ### Project Purposes
-The purpose of the project is to experience developing a working database for analytics, conducting ETL to load the data, writing SQL queries and visualizing the results.
-These data are from Medicare Shared Savings Program (Centers for Medicare & Medicaid Services) and is provided to us by Bon Secours. 
+The purpose of the project is to experience developing a working database for analytics, conducting ETL (Alteryx) to load the data, writing SQL queries and visualizing the results. These data are from Medicare Shared Savings Program (Centers for Medicare & Medicaid Services) and is provided to us by Bon Secours. 
 
 ### Aim and Thesis of the Project
 
