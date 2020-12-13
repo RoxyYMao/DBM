@@ -1,0 +1,2374 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2020.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="222.0001" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Users\Roxym\Desktop\FINAL GROUP PROJECT\CleanClaims (table).yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>CleanClaims (table).yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="PatientID" size="16" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="DateFrom" source="Formula: [_CurrentField_]" type="DateTime" />
+            <Field name="DateTo" source="Formula: [_CurrentField_]" type="DateTime" />
+            <Field name="PatientAge" source="Formula: [_CurrentField_]" type="Double" />
+            <Field name="Death" size="3" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="DeathDate" source="Formula: [_CurrentField_]" type="Date" />
+            <Field name="MDCRStatus" size="21" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="Race" size="21" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Sex" size="6" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="BenefitsType" size="40" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Provider" size="70" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="ProviderType" size="48" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="ClaimType" size="16" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="ClaimStatus" size="253" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="ServiceType" size="9" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="LOS" source="Formula: [_CurrentField_]" type="Double" />
+            <Field name="DiagnosisCode" size="7" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="DiagnosisDesc" size="160" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Zip" size="5" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="County" size="15" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="State" size="2" source="Formula: [_CurrentField_]" type="String" />
+            <Field description="Formula: IF [Row-1:DateTo]=[DateTo] or&#xA;[Row-1:DateFrom]=[DateFrom]&#xA;THEN 1 ELSE 0 ENDIF" name="Duplicate" source="Formula: IF [Row-1:DateTo]=[DateTo] or&#xA;[Row-1:DateFrom]=[DateFrom]&#xA;THEN 1 ELSE 0 ENDIF" type="Int16" />
+            <Field description="Formula: [Row-1:VisitSeq]+1" name="VisitSeq" source="Formula: [Row-1:VisitSeq]+1" type="Int32" />
+            <Field name="R30" source="Formula: IF [readmindelta]&lt;=30 and&#xA;[VisitSeq] &gt; 1 THEN 1 ELSE 0 ENDIF" type="Int16" />
+            <Field name="R60" source="Formula: IF [readmindelta]&lt;=60 AND&#xA;[VisitSeq] &gt; 1 THEN 1 ELSE 0 ENDIF" type="Int16" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="209" y="401" width="190.4128" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Provider Dimension</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="True" />
+          <Folded value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="128">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+            <Position x="234" y="510" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UniqueFields>
+                <Field field="Provider" />
+              </UniqueFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+        </Node>
+        <Node ToolID="129">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+            <Position x="354" y="498" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FieldName>ProviderKey</FieldName>
+              <StartValue>1</StartValue>
+              <FieldType>Int32</FieldType>
+              <FieldSize>6</FieldSize>
+              <Position>0</Position>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+        </Node>
+        <Node ToolID="130">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="474" y="498" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Zip" selected="False" />
+                <SelectField field="ServiceType" selected="False" />
+                <SelectField field="Race" selected="False" />
+                <SelectField field="R60" selected="False" />
+                <SelectField field="R30" selected="False" />
+                <SelectField field="ProviderKey" selected="True" />
+                <SelectField field="ProviderType" selected="True" />
+                <SelectField field="Provider" selected="True" rename="Provider Name" />
+                <SelectField field="PatientID" selected="False" />
+                <SelectField field="BenefitsType" selected="False" />
+                <SelectField field="LOS" selected="False" />
+                <SelectField field="DiagnosisDesc" selected="False" />
+                <SelectField field="DiagnosisCode" selected="False" />
+                <SelectField field="DeathDate" selected="False" />
+                <SelectField field="Death" selected="False" />
+                <SelectField field="DateTo" selected="False" />
+                <SelectField field="DateFrom" selected="False" />
+                <SelectField field="County" selected="False" />
+                <SelectField field="ClaimType" selected="False" />
+                <SelectField field="ClaimStatus" selected="False" />
+                <SelectField field="MDCRStatus" selected="False" />
+                <SelectField field="PatientAge" selected="False" />
+                <SelectField field="Sex" selected="False" />
+                <SelectField field="State" selected="False" />
+                <SelectField field="VisitSeq" selected="False" />
+                <SelectField field="Duplicate" selected="False" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="131">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="570" y="450" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File FileFormat="19" MaxRecords="">C:\Users\Roxym\Desktop\FINAL GROUP PROJECT\dim_provider (table).yxdb</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <NoSpatialIndex>False</NoSpatialIndex>
+                <SaveSource>True</SaveSource>
+                <WriteCompatibleVersion>False</WriteCompatibleVersion>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>dim_provider (table).yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="132">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="570" y="546" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="23">aka:MySQL|||dim_provider</File>
+              <Passwords />
+              <CachedCosmeticName />
+              <FormatSpecificOptions>
+                <SpatialObjSize>8000</SpatialObjSize>
+                <TransactionSize>10000</TransactionSize>
+                <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+                <PostSQL>ALTER TABLE `finalproject`.`dim_provider` 
+CHANGE COLUMN `ProviderKey` `ProviderKey` INT NOT NULL ,
+ADD PRIMARY KEY (`ProviderKey`);
+;</PostSQL>
+                <TableStyle>Quoted</TableStyle>
+                <PreSQL>use finalproject;
+DROP TABLE IF EXISTS dim_provider;</PreSQL>
+                <TransactionMessages>False</TransactionMessages>
+                <OutputOption>Create</OutputOption>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>aka:MySQL
+Query=dim_provider</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="46">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="209" y="677" width="190.6785" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Location Dimension</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="True" />
+          <Folded value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="134">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="234" y="774" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="PatientID" selected="True" size="60" />
+                <SelectField field="Provider" selected="False" type="String" size="60" />
+                <SelectField field="ProviderType" selected="False" type="String" size="60" />
+                <SelectField field="Zip" selected="True" />
+                <SelectField field="County" selected="True" />
+                <SelectField field="State" selected="True" />
+                <SelectField field="Location" selected="True" size="60" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="135">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="1302" y="774" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="0">
+                <Field field="Zip" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Zip - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+        <Node ToolID="136">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+            <Position x="354" y="774" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UniqueFields>
+                <Field field="Zip" />
+              </UniqueFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+        </Node>
+        <Node ToolID="137">
+          <GuiSettings Plugin="PortfolioPluginsGui.AllocateAppend.AllocateAppend">
+            <Position x="582" y="750" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <RecordType>ZIP</RecordType>
+              <ObjOrKeyField>Zip</ObjOrKeyField>
+              <Allocate dataSet="Latest:US_Census_2010" spatialObj="False">
+                <Variables>
+                  <Var name="ZIP_GeoID.ZIP__Coverage_Area" description="Geographic Identifiers Physically Within (2017) ZIP Code Coverage Area" />
+                  <Var name="ZIP_GeoID.ZIP_AreaKm" description="Geographic Identifiers Physically Within (2017) ZIP Code Area Sq Km" />
+                  <Var name="ZIP_GeoID.ZIP_AreaMi" description="Geographic Identifiers Physically Within (2017) ZIP Code Area Sq Mi" />
+                  <Var name="ZIP_GeoID.ZIP_Key" description="Geographic Identifiers Physically Within (2017) ZIP Code Key" />
+                  <Var name="ZIP_GeoID.ZIP_Name" description="Geographic Identifiers Physically Within (2017) ZIP Code Name" />
+                  <Var name="Census_2010_SF1_PT1.P0170001" description="Households US Census (2010) Average Household Size" />
+                  <Var name="Census_2010_SF1_VVF.P0120026_PCT" description="Population US Census (2010) % Total Female" />
+                  <Var name="Census_2010_SF1_VVF.P0120002_PCT" description="Population US Census (2010) % Total Male" />
+                </Variables>
+              </Allocate>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="LocationKey" source="RecordID: Starting Value=1" type="Int32" />
+                <Field name="PatientID" size="60" source="Formula: [_CurrentField_]" type="String" />
+                <Field name="Zip" size="5" source="Formula: [_CurrentField_]" type="String" />
+                <Field name="County" size="15" source="Formula: [_CurrentField_]" type="V_String" />
+                <Field name="State" size="2" source="Formula: [_CurrentField_]" type="String" />
+                <Field description="Geographic Identifiers Physically Within (2017) ZIP Code Coverage Area" name="ZIP__Coverage_Area" scale="2" size="11" source="Allocate: Latest:US_Census_2010" type="FixedDecimal" />
+                <Field description="Geographic Identifiers Physically Within (2017) ZIP Code Area Sq Km" name="ZIP_AreaKm" scale="3" size="11" source="Allocate: Latest:US_Census_2010" type="FixedDecimal" />
+                <Field description="Geographic Identifiers Physically Within (2017) ZIP Code Area Sq Mi" name="ZIP_AreaMi" scale="3" size="11" source="Allocate: Latest:US_Census_2010" type="FixedDecimal" />
+                <Field description="Geographic Identifiers Physically Within (2017) ZIP Code Key" name="ZIP_Key" size="34" source="Allocate: Latest:US_Census_2010" type="V_WString" />
+                <Field description="Geographic Identifiers Physically Within (2017) ZIP Code Name" name="ZIP_Name" size="102" source="Allocate: Latest:US_Census_2010" type="V_WString" />
+                <Field description="Households US Census (2010) Average Household Size" name="P0170001" scale="2" size="22" source="Allocate: Latest:US_Census_2010" type="FixedDecimal" />
+                <Field description="Population US Census (2010) % Total Female" name="P0120026_PCT" scale="2" size="11" source="Allocate: Latest:US_Census_2010" type="FixedDecimal" />
+                <Field description="Population US Census (2010) % Total Male" name="P0120002_PCT" scale="2" size="11" source="Allocate: Latest:US_Census_2010" type="FixedDecimal" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="Zip" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="PortfolioPluginsEngine.dll" EngineDllEntryPoint="AlteryxAllocateAppend" />
+        </Node>
+        <Node ToolID="138">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicRename.DynamicRename">
+            <Position x="690" y="810" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <RenameMode>RightInputRows</RenameMode>
+              <Fields orderChanged="False">
+                <Field name="LocationKey" />
+                <Field name="PatientID" />
+                <Field name="Zip" />
+                <Field name="County" />
+                <Field name="State" />
+                <Field name="ZIP__Coverage_Area" />
+                <Field name="ZIP_AreaKm" />
+                <Field name="ZIP_AreaMi" />
+                <Field name="ZIP_Key" />
+                <Field name="ZIP_Name" />
+                <Field name="P0170001" />
+                <Field name="P0120026_PCT" />
+                <Field name="P0120002_PCT" />
+                <Field name="*Unknown" />
+              </Fields>
+              <Expression />
+              <NamesFromRows>
+                <OnError>Ignore</OnError>
+                <InputMode>Mapped</InputMode>
+                <OldName>Name</OldName>
+                <NewName>Description</NewName>
+              </NamesFromRows>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="LocationKey" source="RecordID: Starting Value=1" type="Int32" />
+                <Field name="PatientID" size="60" source="Formula: [_CurrentField_]" type="String" />
+                <Field name="Zip" size="5" source="Formula: [_CurrentField_]" type="String" />
+                <Field name="County" size="15" source="Formula: [_CurrentField_]" type="V_String" />
+                <Field name="State" size="2" source="Formula: [_CurrentField_]" type="String" />
+                <Field description="Geographic Identifiers Physically Within (2017) ZIP Code Coverage Area" name="ZIP__Coverage_Area" scale="2" size="11" source="Allocate: Latest:US_Census_2010" type="FixedDecimal" />
+                <Field description="Geographic Identifiers Physically Within (2017) ZIP Code Area Sq Km" name="ZIP_AreaKm" scale="3" size="11" source="Allocate: Latest:US_Census_2010" type="FixedDecimal" />
+                <Field description="Geographic Identifiers Physically Within (2017) ZIP Code Area Sq Mi" name="ZIP_AreaMi" scale="3" size="11" source="Allocate: Latest:US_Census_2010" type="FixedDecimal" />
+                <Field description="Geographic Identifiers Physically Within (2017) ZIP Code Key" name="ZIP_Key" size="34" source="Allocate: Latest:US_Census_2010" type="V_WString" />
+                <Field description="Geographic Identifiers Physically Within (2017) ZIP Code Name" name="ZIP_Name" size="102" source="Allocate: Latest:US_Census_2010" type="V_WString" />
+                <Field description="Households US Census (2010) Average Household Size" name="P0170001" scale="2" size="22" source="Allocate: Latest:US_Census_2010" type="FixedDecimal" />
+                <Field description="Population US Census (2010) % Total Female" name="P0120026_PCT" scale="2" size="11" source="Allocate: Latest:US_Census_2010" type="FixedDecimal" />
+                <Field description="Population US Census (2010) % Total Male" name="P0120002_PCT" scale="2" size="11" source="Allocate: Latest:US_Census_2010" type="FixedDecimal" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="Zip" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDynamicRename" />
+        </Node>
+        <Node ToolID="139">
+          <GuiSettings Plugin="PortfolioPluginsGui.AllocateMetaInfo.AllocateMetaInfo">
+            <Position x="570" y="822" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Allocate dataSet="Latest:US_Census_2010" />
+              <MetaInfoMode>Variables</MetaInfoMode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="PortfolioPluginsEngine.dll" EngineDllEntryPoint="AlteryxAllocateMetaInfo" />
+        </Node>
+        <Node ToolID="140">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1182" y="774" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="LocationKey" selected="True" />
+                <SelectField field="County" selected="True" />
+                <SelectField field="P0010001" selected="False" />
+                <SelectField field="P0080002_PCT" selected="False" />
+                <SelectField field="P0080003_PCT" selected="False" />
+                <SelectField field="P0080004_PCT" selected="False" />
+                <SelectField field="P0080005_PCT" selected="False" />
+                <SelectField field="P0080006_PCT" selected="False" />
+                <SelectField field="P0080007_PCT" selected="False" />
+                <SelectField field="P0080008_PCT" selected="False" />
+                <SelectField field="P0080009_PCT" selected="False" />
+                <SelectField field="P0120002_PCT" selected="False" />
+                <SelectField field="P0120026_PCT" selected="False" />
+                <SelectField field="P0170001" selected="False" />
+                <SelectField field="PatientID" selected="False" />
+                <SelectField field="SmartTile_Name" selected="False" rename="Position" />
+                <SelectField field="State" selected="True" />
+                <SelectField field="Tile_Num" selected="False" />
+                <SelectField field="Tile_SequenceNum" selected="False" />
+                <SelectField field="Zip" selected="True" />
+                <SelectField field="Average Household Size" selected="False" />
+                <SelectField field="% Total Female" selected="True" />
+                <SelectField field="% Total Male" selected="True" />
+                <SelectField field="ZIP__Coverage_Area" selected="False" />
+                <SelectField field="ZIP_AreaKm" selected="False" />
+                <SelectField field="ZIP_AreaMi" selected="False" />
+                <SelectField field="ZIP_Key" selected="False" />
+                <SelectField field="ZIP_Name" selected="False" />
+                <SelectField field="Town" selected="True" />
+                <SelectField field="Right_LocationKey" selected="False" />
+                <SelectField field="Right_PatientID" selected="False" />
+                <SelectField field="Right_Zip" selected="False" />
+                <SelectField field="Right_County" selected="False" />
+                <SelectField field="Right_State" selected="False" />
+                <SelectField field="Coverage Area" selected="False" />
+                <SelectField field="Area Sq Km" selected="False" />
+                <SelectField field="Area Sq Mi" selected="False" />
+                <SelectField field="Key" selected="False" />
+                <SelectField field="Name" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="141">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+            <Position x="474" y="762.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FieldName>LocationKey</FieldName>
+              <StartValue>1</StartValue>
+              <FieldType>Int32</FieldType>
+              <FieldSize>6</FieldSize>
+              <Position>0</Position>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+        </Node>
+        <Node ToolID="142">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="1458" y="738" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File FileFormat="19" MaxRecords="">C:\Users\Roxym\Desktop\FINAL GROUP PROJECT\dim_location (table).yxdb</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <NoSpatialIndex>False</NoSpatialIndex>
+                <SaveSource>True</SaveSource>
+                <WriteCompatibleVersion>False</WriteCompatibleVersion>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>dim_location (table).yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="143">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="1458" y="822" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="23">aka:MySQL|||dim_location</File>
+              <Passwords />
+              <CachedCosmeticName />
+              <FormatSpecificOptions>
+                <SpatialObjSize>8000</SpatialObjSize>
+                <TransactionSize>10000</TransactionSize>
+                <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+                <PostSQL>ALTER TABLE `finalproject`.`dim_location` 
+CHANGE COLUMN `LocationKey` `LocationKey` INT NOT NULL ,
+ADD PRIMARY KEY (`LocationKey`);
+;</PostSQL>
+                <TableStyle>Quoted</TableStyle>
+                <PreSQL>use finalproject;
+drop table if exists dim_location;</PreSQL>
+                <TransactionMessages>False</TransactionMessages>
+                <OutputOption>Create</OutputOption>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>aka:MySQL
+Query=dim_location</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="144">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="678" y="726" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="145">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="774" y="726" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile />
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="146">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="918" y="774" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="LocationKey" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="LocationKey" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_LocationKey" selected="True" rename="Right_LocationKey" input="Right_" />
+                    <SelectField field="Right_PatientID" selected="True" rename="Right_PatientID" input="Right_" />
+                    <SelectField field="Right_Zip" selected="True" rename="Right_Zip" input="Right_" />
+                    <SelectField field="Right_County" selected="True" rename="Right_County" input="Right_" />
+                    <SelectField field="Right_State" selected="True" rename="Right_State" input="Right_" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="147">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="786" y="786" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="Substring([ZIP_Name],6)" field="Town" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText><![CDATA[Town = Substring([ZIP_Name],6)
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="148">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="846" y="738" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile />
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="149">
+          <GuiSettings>
+            <Position x="1038" y="774" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Check Box (135)">True</Value>
+              <Value name="Check Box (136)">False</Value>
+              <Value name="List Box (11)">"LocationKey","PatientID","Zip","County","State","ZIP__Coverage_Area","ZIP_AreaKm","ZIP_AreaMi","ZIP_Key","ZIP_Name","P0170001","P0120026_PCT","P0120002_PCT","Town","Right_LocationKey","Right_PatientID","Right_Zip","Right_County","Right_State","Coverage Area","Area Sq Km","Area Sq Mi","Key","Name","Average Household Size","% Total Female","% Total Male"</Value>
+              <Value name="Check Box (84)">False</Value>
+              <Value name="Check Box (117)">False</Value>
+              <Value name="Check Box (15)">True</Value>
+              <Value name="Check Box (109)">False</Value>
+              <Value name="Check Box (122)">False</Value>
+              <Value name="Check Box (53)">False</Value>
+              <Value name="Check Box (58)">False</Value>
+              <Value name="Check Box (70)">False</Value>
+              <Value name="Check Box (77)">False</Value>
+              <Value name="Drop Down (81)">upper</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings Macro="Cleanse.yxmc" />
+        </Node>
+        <Node ToolID="150">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="1134" y="726" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>
+              </TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="68">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="209" y="1193" width="192.0398" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Calendar Dimension</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="True" />
+          <Folded value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="173">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="678" y="1494" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="23">aka:MySQL|||dim_calendar_to</File>
+              <Passwords />
+              <CachedCosmeticName />
+              <FormatSpecificOptions>
+                <SpatialObjSize>8000</SpatialObjSize>
+                <TransactionSize>10000</TransactionSize>
+                <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+                <PostSQL>ALTER TABLE `finalproject`.`dim_calendar_to` 
+CHANGE COLUMN `CalendarKeyDateTo` `CalendarKeyDateTo` INT NOT NULL ,
+ADD PRIMARY KEY (`CalendarKeyDateTo`);
+;</PostSQL>
+                <TableStyle>Quoted</TableStyle>
+                <PreSQL>use finalproject;
+drop table if exists dim_calendar_to;</PreSQL>
+                <TransactionMessages>False</TransactionMessages>
+                <OutputOption>Create</OutputOption>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>aka:MySQL
+Query=dim_calendar_to</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="172">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="666" y="1326" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="23">aka:MySQL|||dim_calendar_from</File>
+              <Passwords />
+              <CachedCosmeticName />
+              <FormatSpecificOptions>
+                <SpatialObjSize>8000</SpatialObjSize>
+                <TransactionSize>10000</TransactionSize>
+                <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+                <PostSQL>ALTER TABLE `finalproject`.`dim_calendar_from` 
+CHANGE COLUMN `CalendarKeyDateFrom` `CalendarKeyDateFrom` INT NOT NULL ,
+ADD PRIMARY KEY (`CalendarKeyDateFrom`);
+;</PostSQL>
+                <TableStyle>Quoted</TableStyle>
+                <PreSQL>use finalproject;
+drop table if exists dim_calendar_from;</PreSQL>
+                <TransactionMessages>False</TransactionMessages>
+                <OutputOption>Create</OutputOption>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>aka:MySQL
+Query=dim_calendar_from</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="171">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="678" y="1434" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File FileFormat="19" MaxRecords="">C:\Users\Roxym\Desktop\FINAL GROUP PROJECT\dim_calendar To (table).yxdb</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <NoSpatialIndex>False</NoSpatialIndex>
+                <SaveSource>True</SaveSource>
+                <WriteCompatibleVersion>False</WriteCompatibleVersion>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>dim_calendar To (table).yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="170">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="666" y="1242" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File FileFormat="19" MaxRecords="">C:\Users\Roxym\Desktop\FINAL GROUP PROJECT\dim_Calendar From (table).yxdb</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <NoSpatialIndex>False</NoSpatialIndex>
+                <SaveSource>True</SaveSource>
+                <WriteCompatibleVersion>False</WriteCompatibleVersion>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>dim_Calendar From (table).yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="169">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="582" y="1434" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="DateTimeFormat([DateTo],&quot;%A&quot;)" field="DayWeekTo" size="1073741823" type="V_WString" />
+                <FormulaField expression="DateTimeFormat([DateTo],&quot;%d&quot;)" field="DayMonthTo" size="1073741823" type="V_WString" />
+                <FormulaField expression="DateTimeFormat([DateTo],&quot;%B&quot;)" field="MonthTo" size="1073741823" type="V_WString" />
+                <FormulaField expression="DateTimeFormat([DateTo],&quot;%Y&quot;)" field="YearTo" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>DayWeekTo = DateTimeFormat([DateTo],"%A")
+DayMonthTo = DateTimeFormat([DateTo],"...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="168">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="570" y="1278" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="DateTimeFormat([DateFrom],&quot;%A&quot;)" field="DayWeekFrom" size="1073741823" type="V_WString" />
+                <FormulaField expression="DateTimeFormat([DateFrom],&quot;%d&quot;)" field="DayMonthFrom" size="1073741823" type="V_WString" />
+                <FormulaField expression="DateTimeFormat([DateFrom],&quot;%B&quot;)" field="MonthFrom" size="1073741823" type="V_WString" />
+                <FormulaField expression="DateTimeFormat([DateFrom],&quot;%Y&quot;)" field="YearFrom" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>DayWeekFrom = DateTimeFormat([DateFrom],"%A")
+DayMonthFrom = DateTimeFormat([Dat...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="167">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="474" y="1434" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="CalendarKeyDateTo" selected="True" />
+                <SelectField field="DateTo" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="166">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="474" y="1278" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="CalendarKeyDateFrom" selected="True" />
+                <SelectField field="DateFrom" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="165">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+            <Position x="378" y="1434" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FieldName>CalendarKeyDateTo</FieldName>
+              <StartValue>1</StartValue>
+              <FieldType>Int32</FieldType>
+              <FieldSize>6</FieldSize>
+              <Position>0</Position>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+        </Node>
+        <Node ToolID="164">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+            <Position x="366" y="1278" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FieldName>CalendarKeyDateFrom</FieldName>
+              <StartValue>1</StartValue>
+              <FieldType>Int32</FieldType>
+              <FieldSize>6</FieldSize>
+              <Position>0</Position>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+        </Node>
+        <Node ToolID="163">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+            <Position x="234" y="1446" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UniqueFields>
+                <Field field="DateTo" />
+              </UniqueFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+        </Node>
+        <Node ToolID="162">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+            <Position x="234" y="1290" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UniqueFields>
+                <Field field="DateFrom" />
+              </UniqueFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="55">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="209" y="929" width="196.8487" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Diagnosis Dimension</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="True" />
+          <Folded value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="152">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="582" y="990" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="PatientID" selected="False" />
+                <SelectField field="DateFrom" selected="False" />
+                <SelectField field="DateTo" selected="False" />
+                <SelectField field="NumberOfDaysStayed" selected="True" />
+                <SelectField field="PatientAge" selected="True" />
+                <SelectField field="Death" selected="True" />
+                <SelectField field="DeathDate" selected="False" />
+                <SelectField field="MDCRStatus" selected="True" />
+                <SelectField field="Race" selected="False" />
+                <SelectField field="Sex" selected="False" />
+                <SelectField field="BenefitsType" selected="False" />
+                <SelectField field="Provider" selected="False" />
+                <SelectField field="ProviderType" selected="False" />
+                <SelectField field="ClaimType" selected="False" />
+                <SelectField field="ClaimStatus" selected="False" />
+                <SelectField field="ServiceType" selected="False" />
+                <SelectField field="LOS" selected="False" />
+                <SelectField field="Diagnosis" selected="True" />
+                <SelectField field="DiagnosisCode" selected="True" />
+                <SelectField field="DiagnosisDesc" selected="True" />
+                <SelectField field="Zip" selected="False" />
+                <SelectField field="County" selected="False" />
+                <SelectField field="State" selected="False" />
+                <SelectField field="Duplicate" selected="False" />
+                <SelectField field="VisitSeq" selected="False" />
+                <SelectField field="R30" selected="True" />
+                <SelectField field="R60" selected="True" />
+                <SelectField field="Right_PatientID" selected="False" />
+                <SelectField field="Right_Datefrom" selected="False" />
+                <SelectField field="ProviderSpecialty" selected="False" />
+                <SelectField field="Right_ProviderType" selected="False" />
+                <SelectField field="Right_DiagnosisCode" selected="False" />
+                <SelectField field="DiagnosisService" selected="False" />
+                <SelectField field="PatientKey" selected="False" />
+                <SelectField field="Right_Right_DateFrom" selected="False" rename="Date From" />
+                <SelectField field="Right_DateTo" selected="False" rename="Date To" />
+                <SelectField field="Right_PatientAge" selected="False" />
+                <SelectField field="Right_Death" selected="False" />
+                <SelectField field="Right_MDCRStatus" selected="False" />
+                <SelectField field="Right_Race" selected="False" />
+                <SelectField field="Right_Sex" selected="False" />
+                <SelectField field="Right_BenefitsType" selected="False" />
+                <SelectField field="Right_Zip" selected="False" />
+                <SelectField field="Age Group" selected="False" />
+                <SelectField field="Right_County" selected="False" />
+                <SelectField field="State__Coverage_Area" selected="False" />
+                <SelectField field="State_AreaKm" selected="False" />
+                <SelectField field="State_AreaMi" selected="False" />
+                <SelectField field="State_Key" selected="False" />
+                <SelectField field="Right_State" selected="False" />
+                <SelectField field="City" selected="False" />
+                <SelectField field="Total Population" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="153">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+            <Position x="1062" y="990" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FieldName>DiagnosisKey</FieldName>
+              <StartValue>1</StartValue>
+              <FieldType>Int32</FieldType>
+              <FieldSize>6</FieldSize>
+              <Position>0</Position>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+        </Node>
+        <Node ToolID="154">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+            <Position x="462" y="1002" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UniqueFields>
+                <Field field="PatientID" />
+              </UniqueFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+        </Node>
+        <Node ToolID="155">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="774" y="990" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="Switch(Left([DiagnosisCode],3),Null(),&#xA;'I21','AMI',&#xA;'I25', 'CABG',&#xA;'I63', 'Stroke',&#xA;'J44', 'COPD',&#xA;'I50', 'HF')&#xA;" field="Diagnosis Name" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Diagnosis Name = Switch(Left([DiagnosisCode],3),Null(),
+'I21','AMI',
+'I25', 'CAB...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="156">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="942" y="990" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="PatientAge" selected="False" />
+                <SelectField field="Death" selected="False" />
+                <SelectField field="R30" selected="False" />
+                <SelectField field="R60" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="157">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="1158" y="978" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File FileFormat="19" MaxRecords="">C:\Users\Roxym\Desktop\FINAL GROUP PROJECT\dim_diagnosis (table).yxdb</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <NoSpatialIndex>False</NoSpatialIndex>
+                <SaveSource>True</SaveSource>
+                <WriteCompatibleVersion>False</WriteCompatibleVersion>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>dim_diagnosis (table).yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="158">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="234" y="1038" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Users\Roxym\Desktop\FINAL GROUP PROJECT\LowLevelClaims (table).yxdb</File>
+              <FormatSpecificOptions />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>LowLevelClaims (table).yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="PatientID" size="255" source="File: (Multiple Sources)" type="V_WString" />
+                <Field name="Datefrom" source="File: (Multiple Sources)" type="Date" />
+                <Field name="ProviderSpecialty" size="57" source="File: (Multiple Sources)" type="V_String" />
+                <Field name="ProviderType" size="27" source="File: (Multiple Sources)" type="String" />
+                <Field name="DiagnosisCode" size="7" source="File: (Multiple Sources)" type="String" />
+                <Field name="Diagnosis" size="160" source="File: (Multiple Sources)" type="V_String" />
+                <Field name="DiagnosisService" size="124" source="File: (Multiple Sources)" type="V_String" />
+                <Field name="PatientKey" source="RecordID: Starting Value=1" type="Int32" />
+                <Field name="Right_DateFrom" source="Formula: [_CurrentField_]" type="DateTime" />
+                <Field name="Right_DateTo" source="Formula: [_CurrentField_]" type="DateTime" />
+                <Field name="Right_PatientAge" source="Formula: [_CurrentField_]" type="Double" />
+                <Field name="Right_Death" size="3" source="Formula: [_CurrentField_]" type="String" />
+                <Field name="Right_MDCRStatus" size="21" source="Formula: [_CurrentField_]" type="String" />
+                <Field name="Right_Race" size="21" source="Formula: [_CurrentField_]" type="V_String" />
+                <Field name="Right_Sex" size="6" source="Formula: [_CurrentField_]" type="String" />
+                <Field name="BenefitsType" size="40" source="Formula: IIF(IsNull([BenefitsType]),&quot;not available&quot;, [BenefitsType])" type="V_String" />
+                <Field name="Right_Zip" size="5" source="Formula: [_CurrentField_]" type="String" />
+                <Field name="NumberOfDaysStayed" size="1073741823" source="Formula: DateTimeDiff([DateTo],[DateFrom],'days')" type="V_WString" />
+                <Field name="Age Group" size="1073741823" source="Formula: Switch([Tile_Num], 'old',&#xA;1, '20s',&#xA;2, '30s',&#xA;3, '40s',&#xA;4, '50s',&#xA;5, '60s',&#xA;6, '70s',&#xA;7, '80s',&#xA;8, '90s',&#xA;9, '100 and over' )" type="V_WString" />
+                <Field description="Geographic Identifiers Physically Within (2017) County Name" name="Right_County" size="102" source="Allocate: Latest:US_Census_2010" type="V_WString" />
+                <Field description="Geographic Identifiers Physically Within (2017) State Coverage Area" name="State__Coverage_Area" scale="2" size="11" source="Allocate: Latest:US_Census_2010" type="FixedDecimal" />
+                <Field description="Geographic Identifiers Physically Within (2017) State Area Sq Km" name="State_AreaKm" scale="3" size="11" source="Allocate: Latest:US_Census_2010" type="FixedDecimal" />
+                <Field description="Geographic Identifiers Physically Within (2017) State Area Sq Mi" name="State_AreaMi" scale="3" size="11" source="Allocate: Latest:US_Census_2010" type="FixedDecimal" />
+                <Field description="Geographic Identifiers Physically Within (2017) State Key" name="State_Key" size="34" source="Allocate: Latest:US_Census_2010" type="V_WString" />
+                <Field description="Geographic Identifiers Physically Within (2017) State Name" name="Right_State" size="102" source="Allocate: Latest:US_Census_2010" type="V_WString" />
+                <Field name="City" size="1073741823" source="Formula: Substring([ZIP_Name],6)" type="V_WString" />
+                <Field name="Total Population" size="60" source="File: C:\Users\Roxym\Desktop\FINAL GROUP PROJECT\dim_patient (table).yxdb" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="159">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="342" y="1002" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="PatientID" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="PatientID" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_PatientID" selected="False" rename="Right_PatientID" input="Right_" />
+                    <SelectField field="Right_Datefrom" selected="False" rename="Right_Datefrom" input="Right_" />
+                    <SelectField field="Right_ProviderType" selected="False" rename="Right_ProviderType" input="Right_" />
+                    <SelectField field="Right_DiagnosisCode" selected="False" rename="Right_DiagnosisCode" input="Right_" />
+                    <SelectField field="Right_Right_DateFrom" selected="False" rename="Right_Right_DateFrom" input="Right_" />
+                    <SelectField field="Right_BenefitsType" selected="False" rename="Right_BenefitsType" input="Right_" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="160">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="1158" y="1062" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="23">aka:MySQL|||dim_diagnosis</File>
+              <Passwords />
+              <CachedCosmeticName />
+              <FormatSpecificOptions>
+                <SpatialObjSize>8000</SpatialObjSize>
+                <TransactionSize>10000</TransactionSize>
+                <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+                <PostSQL>ALTER TABLE `finalproject`.`dim_diagnosis` 
+CHANGE COLUMN `DiagnosisKey` `DiagnosisKey` INT NOT NULL ,
+ADD PRIMARY KEY (`DiagnosisKey`);
+;</PostSQL>
+                <TableStyle>Quoted</TableStyle>
+                <PreSQL>use finalproject;
+DROP TABLE IF EXISTS dim_diagnosis;</PreSQL>
+                <TransactionMessages>False</TransactionMessages>
+                <OutputOption>Create</OutputOption>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>aka:MySQL
+Query=dim_diagnosis</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="209" y="0" width="182.8647" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Patient Dimension</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="True" />
+          <Folded value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="102">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="234" y="49.00013" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="PatientID" selected="True" />
+                <SelectField field="DateFrom" selected="True" />
+                <SelectField field="DateTo" selected="True" />
+                <SelectField field="PatientAge" selected="True" />
+                <SelectField field="Death" selected="True" />
+                <SelectField field="MDCRStatus" selected="True" />
+                <SelectField field="Race" selected="True" />
+                <SelectField field="Sex" selected="True" />
+                <SelectField field="BenefitsType" selected="True" />
+                <SelectField field="Zip" selected="True" />
+                <SelectField field="County" selected="True" />
+                <SelectField field="State" selected="True" />
+                <SelectField field="R30" selected="False" rename="MonthReturnRate" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="103">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="534" y="169.0002" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="P0130001" selected="False" />
+                <SelectField field="P0010001" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="104">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+            <Position x="617.9999" y="61.00008" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UniqueFields>
+                <Field field="PatientID" />
+              </UniqueFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Sort by PatientID</AnnotationText>
+              <DefaultAnnotationText>Sort by PatientID</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+        </Node>
+        <Node ToolID="105">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+            <Position x="713.9999" y="49.00003" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FieldName>PatientKey</FieldName>
+              <StartValue>1</StartValue>
+              <FieldType>Int32</FieldType>
+              <FieldSize>6</FieldSize>
+              <Position>0</Position>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+        </Node>
+        <Node ToolID="106">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="318" y="49.00007" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="0">
+                <Field field="PatientID" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>PatientID - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+        <Node ToolID="107">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="822" y="49.00006" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="IIF(IsNull([BenefitsType]),&quot;not available&quot;, [BenefitsType])" field="BenefitsType" size="40" type="V_String" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText><![CDATA[BenefitsType = IIF(IsNull([BenefitsType]),"not available", [BenefitsType])
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="108">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Tile.Tile">
+            <Position x="918" y="49.00007" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Method>Manual</Method>
+              <Manual>
+                <Field>PatientAge</Field>
+                <Cutoffs><![CDATA[29
+39
+49
+59
+69
+79
+89
+99
+109
+
+]]></Cutoffs>
+              </Manual>
+              <GroupFields orderChanged="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTile" />
+        </Node>
+        <Node ToolID="109">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="270" y="198.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="Switch([Tile_Num], 'old',&#xA;1, '20s',&#xA;2, '30s',&#xA;3, '40s',&#xA;4, '50s',&#xA;5, '60s',&#xA;6, '70s',&#xA;7, '80s',&#xA;8, '90s',&#xA;9, '100 and over' )" field="Age Group" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Age Group = Switch([Tile_Num], 'old',
+1, '20s',
+2, '30s',
+3, '40s',
+4, '50s',
+5,...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="110">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="378" y="174.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Tile_Num" selected="False" />
+                <SelectField field="Tile_SequenceNum" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="111">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="534" y="253.0002" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="PatientKey" selected="True" />
+                <SelectField field="P0130001" selected="True" />
+                <SelectField field="P0010001" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="112">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="378" y="234" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile />
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="113">
+          <GuiSettings Plugin="PortfolioPluginsGui.AllocateAppend.AllocateAppend">
+            <Position x="462" y="217.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <RecordType>ZIP</RecordType>
+              <ObjOrKeyField>Zip</ObjOrKeyField>
+              <Allocate dataSet="Latest:US_Census_2010" spatialObj="False">
+                <Variables>
+                  <Var name="COUNTY_GeoID.County_Name" description="Geographic Identifiers Physically Within (2017) County Name" />
+                  <Var name="State_GeoID.State__Coverage_Area" description="Geographic Identifiers Physically Within (2017) State Coverage Area" />
+                  <Var name="State_GeoID.State_AreaKm" description="Geographic Identifiers Physically Within (2017) State Area Sq Km" />
+                  <Var name="State_GeoID.State_AreaMi" description="Geographic Identifiers Physically Within (2017) State Area Sq Mi" />
+                  <Var name="State_GeoID.State_Key" description="Geographic Identifiers Physically Within (2017) State Key" />
+                  <Var name="State_GeoID.State_Name" description="Geographic Identifiers Physically Within (2017) State Name" />
+                  <Var name="ZIP_GeoID.ZIP_Name" description="Geographic Identifiers Physically Within (2017) ZIP Code Name" />
+                  <Var name="Census_2010_SF1_PT1.P0130001" description="Population US Census (2010) Median Age Total Population" />
+                  <Var name="Census_2010_PRIMARY_SF1.P0010001" description="Population US Census (2010) Total Population" />
+                </Variables>
+              </Allocate>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="PatientKey" source="RecordID: Starting Value=1" type="Int32" />
+                <Field name="PatientID" size="16" source="Formula: [_CurrentField_]" type="String" />
+                <Field name="DateFrom" source="Formula: [_CurrentField_]" type="DateTime" />
+                <Field name="DateTo" source="Formula: [_CurrentField_]" type="DateTime" />
+                <Field name="PatientAge" source="Formula: [_CurrentField_]" type="Double" />
+                <Field name="Death" size="3" source="Formula: [_CurrentField_]" type="String" />
+                <Field name="MDCRStatus" size="21" source="Formula: [_CurrentField_]" type="String" />
+                <Field name="Race" size="21" source="Formula: [_CurrentField_]" type="V_String" />
+                <Field name="Sex" size="6" source="Formula: [_CurrentField_]" type="String" />
+                <Field name="BenefitsType" size="40" source="Formula: IIF(IsNull([BenefitsType]),&quot;not available&quot;, [BenefitsType])" type="V_String" />
+                <Field name="Zip" size="5" source="Formula: [_CurrentField_]" type="String" />
+                <Field name="County" size="15" source="Formula: [_CurrentField_]" type="V_String" />
+                <Field name="State" size="2" source="Formula: [_CurrentField_]" type="String" />
+                <Field name="NumberOfDaysStayed" size="1073741823" source="Formula: DateTimeDiff([DateTo],[DateFrom],'days')" type="V_WString" />
+                <Field name="Age Group" size="1073741823" source="Formula: Switch([Tile_Num], 'old',&#xA;1, '20s',&#xA;2, '30s',&#xA;3, '40s',&#xA;4, '50s',&#xA;5, '60s',&#xA;6, '70s',&#xA;7, '80s',&#xA;8, '90s',&#xA;9, '100 and over' )" type="V_WString" />
+                <Field description="Geographic Identifiers Physically Within (2017) County Name" name="County_Name" size="102" source="Allocate: Latest:US_Census_2010" type="V_WString" />
+                <Field description="Geographic Identifiers Physically Within (2017) State Coverage Area" name="State__Coverage_Area" scale="2" size="11" source="Allocate: Latest:US_Census_2010" type="FixedDecimal" />
+                <Field description="Geographic Identifiers Physically Within (2017) State Area Sq Km" name="State_AreaKm" scale="3" size="11" source="Allocate: Latest:US_Census_2010" type="FixedDecimal" />
+                <Field description="Geographic Identifiers Physically Within (2017) State Area Sq Mi" name="State_AreaMi" scale="3" size="11" source="Allocate: Latest:US_Census_2010" type="FixedDecimal" />
+                <Field description="Geographic Identifiers Physically Within (2017) State Key" name="State_Key" size="34" source="Allocate: Latest:US_Census_2010" type="V_WString" />
+                <Field description="Geographic Identifiers Physically Within (2017) State Name" name="State_Name" size="102" source="Allocate: Latest:US_Census_2010" type="V_WString" />
+                <Field description="Geographic Identifiers Physically Within (2017) ZIP Code Name" name="ZIP_Name" size="102" source="Allocate: Latest:US_Census_2010" type="V_WString" />
+                <Field description="Population US Census (2010) Median Age Total Population" name="P0130001" scale="2" size="22" source="Allocate: Latest:US_Census_2010" type="FixedDecimal" />
+                <Field description="Population US Census (2010) Total Population" name="P0010001" source="Allocate: Latest:US_Census_2010" type="Int64" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="PatientID" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="PortfolioPluginsEngine.dll" EngineDllEntryPoint="AlteryxAllocateAppend" />
+        </Node>
+        <Node ToolID="114">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicRename.DynamicRename">
+            <Position x="642" y="258" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <RenameMode>RightInputRows</RenameMode>
+              <Fields orderChanged="False">
+                <Field name="PatientKey" />
+                <Field name="P0130001" />
+                <Field name="P0010001" />
+                <Field name="*Unknown" />
+              </Fields>
+              <Expression />
+              <NamesFromRows>
+                <OnError>Ignore</OnError>
+                <InputMode>Mapped</InputMode>
+                <OldName>Name</OldName>
+                <NewName>Description</NewName>
+              </NamesFromRows>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="PatientKey" source="RecordID: Starting Value=1" type="Int32" />
+                <Field description="Population US Census (2010) Median Age Total Population" name="Median Age Total Population" scale="2" size="22" source="Allocate: Latest:US_Census_2010" type="FixedDecimal" />
+                <Field description="Population US Census (2010) Total Population" name="Total Population" source="Allocate: Latest:US_Census_2010" type="Int64" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDynamicRename" />
+        </Node>
+        <Node ToolID="115">
+          <GuiSettings Plugin="PortfolioPluginsGui.AllocateMetaInfo.AllocateMetaInfo">
+            <Position x="462" y="294" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Allocate dataSet="Latest:US_Census_2010" />
+              <MetaInfoMode>Variables</MetaInfoMode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="PortfolioPluginsEngine.dll" EngineDllEntryPoint="AlteryxAllocateMetaInfo" />
+        </Node>
+        <Node ToolID="116">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="702" y="193.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="PatientKey" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="PatientKey" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_PatientKey" selected="False" rename="Right_PatientKey" input="Right_" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="117">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="822" y="205.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="County" selected="False" />
+                <SelectField field="State" selected="False" />
+                <SelectField field="County_Name" selected="True" rename="County" />
+                <SelectField field="State_Name" selected="True" rename="State" />
+                <SelectField field="Median Age Total Population" selected="True" rename="Med Age Pop" />
+                <SelectField field="Total Population" selected="True" rename="Total Polulation" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="118">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="918" y="205.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="Substring([ZIP_Name],6)" field="City" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText><![CDATA[City = Substring([ZIP_Name],6)
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="119">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Tile.Tile">
+            <Position x="1014" y="205.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Method>SmartTile</Method>
+              <SmartTile>
+                <Field>Total Polulation</Field>
+                <NameField>Verbose</NameField>
+              </SmartTile>
+              <GroupFields orderChanged="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTile" />
+        </Node>
+        <Node ToolID="120">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1110" y="205.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="ZIP_Name" selected="False" />
+                <SelectField field="Total Polulation" selected="False" />
+                <SelectField field="Tile_Num" selected="False" />
+                <SelectField field="Tile_SequenceNum" selected="False" />
+                <SelectField field="SmartTile_Name" selected="True" rename="Total Population" />
+                <SelectField field="P0010001" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="121">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Tile.Tile">
+            <Position x="1206" y="205.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Method>SmartTile</Method>
+              <SmartTile>
+                <Field>Med Age Pop</Field>
+              </SmartTile>
+              <GroupFields orderChanged="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTile" />
+        </Node>
+        <Node ToolID="122">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1314" y="205.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="PatientKey" selected="True" />
+                <SelectField field="PatientID" selected="True" />
+                <SelectField field="DateFrom" selected="True" />
+                <SelectField field="DateTo" selected="True" />
+                <SelectField field="PatientAge" selected="True" />
+                <SelectField field="Death" selected="True" />
+                <SelectField field="MDCRStatus" selected="True" />
+                <SelectField field="Race" selected="True" />
+                <SelectField field="Sex" selected="True" />
+                <SelectField field="BenefitsType" selected="True" />
+                <SelectField field="NumberOfDaysStayed" selected="False" />
+                <SelectField field="Age Group" selected="True" />
+                <SelectField field="Zip" selected="True" />
+                <SelectField field="City" selected="True" />
+                <SelectField field="County" selected="True" />
+                <SelectField field="State" selected="True" />
+                <SelectField field="State__Coverage_Area" selected="False" />
+                <SelectField field="State_AreaKm" selected="False" />
+                <SelectField field="State_AreaMi" selected="False" />
+                <SelectField field="State_Key" selected="False" />
+                <SelectField field="Med Age Pop" selected="False" />
+                <SelectField field="Total Population" selected="True" />
+                <SelectField field="Tile_Num" selected="False" />
+                <SelectField field="Tile_SequenceNum" selected="False" />
+                <SelectField field="SmartTile_Name" selected="True" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="123">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="1410" y="205.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="0">
+                <Field field="PatientKey" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>PatientKey - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+        <Node ToolID="124">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="1494" y="145.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File FileFormat="19" MaxRecords="">C:\Users\Roxym\Desktop\FINAL GROUP PROJECT\dim_patient (table).yxdb</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <NoSpatialIndex>False</NoSpatialIndex>
+                <SaveSource>True</SaveSource>
+                <WriteCompatibleVersion>False</WriteCompatibleVersion>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>dim_patient (table).yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="125">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="1494" y="253.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="23">aka:MySQL|||dim_patient</File>
+              <Passwords />
+              <CachedCosmeticName />
+              <FormatSpecificOptions>
+                <SpatialObjSize>8000</SpatialObjSize>
+                <TransactionSize>10000</TransactionSize>
+                <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+                <PostSQL>ALTER TABLE `finalproject`.`dim_patient` 
+CHANGE COLUMN `PatientKey` `PatientKey` INT NOT NULL ,
+ADD PRIMARY KEY (`PatientKey`);
+;</PostSQL>
+                <TableStyle>Quoted</TableStyle>
+                <PreSQL>use finalproject;
+DROP TABLE IF EXISTS dim_patient;</PreSQL>
+                <TransactionMessages>False</TransactionMessages>
+                <OutputOption>Create</OutputOption>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>aka:MySQL
+Query=dim_patient</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="126">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="414" y="49.00011" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="DateTimeDiff([DateTo],[DateFrom],'days')" field="NumberOfDaysStayed" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText><![CDATA[NumberOfDaysStayed = DateTimeDiff([DateTo],[DateFrom],'days')
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="127">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="510" y="49" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="0">
+                <Field field="PatientID" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>PatientID - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="102" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="128" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="134" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="159" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="158" Connection="Output" />
+      <Destination ToolID="159" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="162" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="163" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="128" Connection="Unique" />
+      <Destination ToolID="129" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="129" Connection="Output" />
+      <Destination ToolID="130" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="130" Connection="Output" />
+      <Destination ToolID="131" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="130" Connection="Output" />
+      <Destination ToolID="132" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="134" Connection="Output" />
+      <Destination ToolID="136" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="135" Connection="Output" />
+      <Destination ToolID="142" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="135" Connection="Output" />
+      <Destination ToolID="143" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="136" Connection="Unique" />
+      <Destination ToolID="141" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="137" Connection="Output" />
+      <Destination ToolID="138" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="139" Connection="Output" />
+      <Destination ToolID="138" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="137" Connection="Output" />
+      <Destination ToolID="144" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="138" Connection="Output" />
+      <Destination ToolID="146" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="147" Connection="Output" />
+      <Destination ToolID="146" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="140" Connection="Output" />
+      <Destination ToolID="135" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="141" Connection="Output" />
+      <Destination ToolID="137" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="144" Connection="Output" />
+      <Destination ToolID="145" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="144" Connection="Output" />
+      <Destination ToolID="147" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="146" Connection="Join" />
+      <Destination ToolID="149" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="147" Connection="Output" />
+      <Destination ToolID="148" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="149" Connection="Output26" />
+      <Destination ToolID="140" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="149" Connection="Output26" />
+      <Destination ToolID="150" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="169" Connection="Output" />
+      <Destination ToolID="173" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="169" Connection="Output" />
+      <Destination ToolID="171" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="168" Connection="Output" />
+      <Destination ToolID="172" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="168" Connection="Output" />
+      <Destination ToolID="170" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="167" Connection="Output" />
+      <Destination ToolID="169" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="166" Connection="Output" />
+      <Destination ToolID="168" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="165" Connection="Output" />
+      <Destination ToolID="167" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="164" Connection="Output" />
+      <Destination ToolID="166" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="163" Connection="Unique" />
+      <Destination ToolID="165" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="162" Connection="Unique" />
+      <Destination ToolID="164" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="152" Connection="Output" />
+      <Destination ToolID="155" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="153" Connection="Output" />
+      <Destination ToolID="157" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="153" Connection="Output" />
+      <Destination ToolID="160" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="154" Connection="Unique" />
+      <Destination ToolID="152" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="155" Connection="Output" />
+      <Destination ToolID="156" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="156" Connection="Output" />
+      <Destination ToolID="153" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="159" Connection="Join" />
+      <Destination ToolID="154" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="102" Connection="Output" />
+      <Destination ToolID="106" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="103" Connection="Output" />
+      <Destination ToolID="116" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="114" Connection="Output" />
+      <Destination ToolID="116" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="104" Connection="Unique" />
+      <Destination ToolID="105" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="105" Connection="Output" />
+      <Destination ToolID="107" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="106" Connection="Output" />
+      <Destination ToolID="126" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="107" Connection="Output" />
+      <Destination ToolID="108" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="108" Connection="Output" />
+      <Destination ToolID="109" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="109" Connection="Output" />
+      <Destination ToolID="112" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="109" Connection="Output" />
+      <Destination ToolID="110" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="110" Connection="Output" />
+      <Destination ToolID="113" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="111" Connection="Output" />
+      <Destination ToolID="114" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="115" Connection="Output" />
+      <Destination ToolID="114" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="113" Connection="Output" />
+      <Destination ToolID="103" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="113" Connection="Output" />
+      <Destination ToolID="111" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="116" Connection="Join" />
+      <Destination ToolID="117" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="117" Connection="Output" />
+      <Destination ToolID="118" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="118" Connection="Output" />
+      <Destination ToolID="119" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="119" Connection="Output" />
+      <Destination ToolID="120" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="120" Connection="Output" />
+      <Destination ToolID="121" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="121" Connection="Output" />
+      <Destination ToolID="122" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="122" Connection="Output" />
+      <Destination ToolID="123" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="123" Connection="Output" />
+      <Destination ToolID="124" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="123" Connection="Output" />
+      <Destination ToolID="125" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="126" Connection="Output" />
+      <Destination ToolID="127" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="127" Connection="Output" />
+      <Destination ToolID="104" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Project Dimensions</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
